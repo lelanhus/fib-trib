@@ -1,9 +1,7 @@
 class FibTrib
   def fibonacci(position = 0)
-    if position == 0
+    if position == 0 || position == 1
       1
-    elsif position == 1 || position == 2 || position == 3
-      position
     else
       pos_1 = position - 1
       pos_2 = position - 2
@@ -16,10 +14,11 @@ class FibTrib
       1
     elsif position == 2
       position
-    elsif position == 4
-      7
     else 
-      position + 1
+      pos_1 = position - 1
+      pos_2 = position - 2
+      pos_3 = position - 3
+      tribonacci(pos_1) + tribonacci(pos_2) + tribonacci(pos_3)
     end
   end
 end

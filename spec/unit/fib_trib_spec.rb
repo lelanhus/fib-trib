@@ -61,5 +61,11 @@ describe FibTrib do
     it "should return 7 when 4 is passed as an argument" do
       @fib.tribonacci(4).should == 7
     end
+    
+    it "should return 13 when 5 is passed as an argument" do
+      @fib.tribonacci(5).should == 13
+    end
   end
+
+  
 end
