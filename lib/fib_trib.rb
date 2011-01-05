@@ -8,11 +8,7 @@ class FibTrib
   def fibonacci(position = 0)
     return 2 if position == 2
     return 1 if needs_one?(position)
-    x = 0
-    positions_array(0, position).each do |pos|
-      x += fibonacci(pos)
-    end
-    return x
+    sum_sequence(0, position)
   end
   
   def tribonacci(position = 0)
@@ -20,15 +16,19 @@ class FibTrib
     if position == 2
       position
     else 
-      x = 0
-      positions_array(1, position).each do |pos|
-        x += tribonacci(pos)
-      end
-      return x
+      sum_sequence(1,position)
     end
   end
   
   private
+  
+  def sum_sequence(n, position)
+    x = 0
+    positions_array(n, position).each do |pos|
+      x += sequence(n,pos)
+    end
+    return x
+  end
   
   def positions_array(n, position)
     iterator = n + 2
