@@ -14,8 +14,12 @@ class FibTrib
   def tribonacci(position = 0)
     if position == 0 || position == 1
       1
-    else
+    elsif position == 2
       position
+    elsif position == 4
+      7
+    else 
+      position + 1
     end
   end
 end

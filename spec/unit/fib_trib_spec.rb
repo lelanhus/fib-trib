@@ -53,5 +53,13 @@ describe FibTrib do
     it "should return 2 when 2 is passed as an argument" do
       @fib.tribonacci(2).should == 2
     end
+    
+    it "should return 4 when 3 is passed as an argument" do
+      @fib.tribonacci(3).should == 4
+    end
+    
+    it "should return 7 when 4 is passed as an argument" do
+      @fib.tribonacci(4).should == 7
+    end
   end
 end
