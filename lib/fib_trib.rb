@@ -1,7 +1,6 @@
 class FibTrib
   
   def sequence(n, pos = 0)
-    return 1 if needs_one?(pos)
     return fibonacci(pos) if n == 0
     return tribonacci(pos) if n == 1
   end
@@ -32,16 +31,13 @@ class FibTrib
   private
   
   def positions_array(n, position)
-    if n == 0
-      positions = []
-      positions << position - 1
-      positions << position - 2
-    else
-      positions = []
-      positions << position - 1
-      positions << position - 2
-      positions << position - 3
+    iterator = n + 2
+    positions = []
+    until iterator == 0
+      positions << position - iterator
+      iterator = iterator - 1
     end
+    return positions
   end
   
   def needs_one?(position)
