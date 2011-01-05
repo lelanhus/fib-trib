@@ -1,25 +1,12 @@
 class FibTrib
   
   def sequence(n, pos = 0)
-    return fibonacci(pos) if n == 0
-    return tribonacci(pos) if n == 1
+    return 1 if needs_one?(pos)
+    return 2 if pos == 2
+    sum_sequence(n, pos)
   end
   
   private
-  def fibonacci(position = 0)
-    return 2 if position == 2
-    return 1 if needs_one?(position)
-    sum_sequence(0, position)
-  end
-  
-  def tribonacci(position = 0)
-    return 1 if needs_one?(position)
-    if position == 2
-      position
-    else 
-      sum_sequence(1,position)
-    end
-  end
   
   def sum_sequence(n, position)
     x = 0
