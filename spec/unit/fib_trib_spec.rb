@@ -67,4 +67,29 @@ describe FibTrib do
     end
   end
 
+  context "quadronacci sequence" do
+    it "#sequence should return 1 when n = 2" do
+      @fib.sequence(2).should == 1
+    end
+    
+    it "#sequence should return 1 when n = 2 and pos = 1" do
+      @fib.sequence(2,1).should == 1
+    end
+    
+    it "#sequence should return 2 when n = 2 and pos = 2" do
+      @fib.sequence(2,2).should == 2
+    end
+    
+    it "#sequence should return 4 when n = 2 and pos = 3" do
+      @fib.sequence(2,3).should == 4
+    end
+    
+    it "#sequence should return 8 when n = 2 and pos = 4" do
+      @fib.sequence(2,4).should == 8
+    end
+    
+    it "#sequence should return 15 when n = 2 and pos = 5" do
+      @fib.sequence(2,5).should == 15
+    end
+  end
 end
