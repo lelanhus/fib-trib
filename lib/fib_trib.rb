@@ -1,7 +1,7 @@
 class FibTrib
   
   def sequence(n, pos = 0)
-    return 1 if zero_or_one?(pos)
+    return 1 if needs_one?(pos)
     return fibonacci(pos) if n == 0
     return tribonacci(pos) if n == 1
   end
@@ -9,9 +9,11 @@ class FibTrib
   def fibonacci(position = 0)
     return 2 if position == 2
     return 1 if needs_one?(position)
-    pos_1 = position - 1
-    pos_2 = position - 2
-    fibonacci(pos_1) + fibonacci(pos_2)
+    x = 0
+    positions_array(0, position).each do |pos|
+      x += fibonacci(pos)
+    end
+    return x
   end
   
   def tribonacci(position = 0)
@@ -19,17 +21,27 @@ class FibTrib
     if position == 2
       position
     else 
-      pos_1 = position - 1
-      pos_2 = position - 2
-      pos_3 = position - 3
-      tribonacci(pos_1) + tribonacci(pos_2) + tribonacci(pos_3)
+      x = 0
+      positions_array(1, position).each do |pos|
+        x += tribonacci(pos)
+      end
+      return x
     end
   end
   
   private
   
-  def zero_or_one?(position)
-    position == 0 || position == 1
+  def positions_array(n, position)
+    if n == 0
+      positions = []
+      positions << position - 1
+      positions << position - 2
+    else
+      positions = []
+      positions << position - 1
+      positions << position - 2
+      positions << position - 3
+    end
   end
   
   def needs_one?(position)
