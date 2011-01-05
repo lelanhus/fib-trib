@@ -5,6 +5,7 @@ class FibTrib
     return tribonacci(pos) if n == 1
   end
   
+  private
   def fibonacci(position = 0)
     return 2 if position == 2
     return 1 if needs_one?(position)
@@ -19,8 +20,6 @@ class FibTrib
       sum_sequence(1,position)
     end
   end
-  
-  private
   
   def sum_sequence(n, position)
     x = 0
