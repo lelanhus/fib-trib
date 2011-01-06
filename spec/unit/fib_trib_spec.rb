@@ -91,5 +91,6 @@ describe FibTrib do
     it "#sequence should return 15 when n = 2 and pos = 5" do
       @fib.sequence(2,5).should == 15
     end
+
   end
 end
