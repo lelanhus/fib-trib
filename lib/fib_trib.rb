@@ -1,9 +1,9 @@
 class FibTrib
   
   def sequence(n, pos = 0)
+    return fibonacci(pos) if n == 0
     return 1 if needs_one?(pos)
     return 2 if pos == 2
-    #return 4 if n != 0 && pos == 3
     if pos_less_n_equals_two?(n, pos)
       m = n - 1
       sum_sequence(m, pos) + 1
@@ -16,6 +16,12 @@ class FibTrib
   end
   
   private
+  
+  def fibonacci(pos = 0)
+    return 1 if needs_one?(pos)
+    return 2 if pos == 2
+    sum_sequence(0, pos)
+  end
   
   def pos_less_n_equals_two?(n, pos)
     pos - n == 2

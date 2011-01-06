@@ -93,4 +93,10 @@ describe FibTrib do
     end
 
   end
+
+  context "pentanacci sequence" do
+    it "#sequence should return 32 when n = 4 and pos = 6" do
+     # @fib.sequence(4,8).should == 125      
+    end
+  end
 end
