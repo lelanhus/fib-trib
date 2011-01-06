@@ -8,14 +8,14 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Leland Husband"]
   s.email       = ["leland.husband@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "http://github.com/lelanhus/fib-trib"
   s.summary     = %q{A limited set sum engine}
   s.description = %q{Sums array contents in moving groups with the assumption that fibonacci is the base.}
 
   s.rubyforge_project = "fib_trib"
 
   s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.test_files    = `git ls-files -- {spec/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
   
