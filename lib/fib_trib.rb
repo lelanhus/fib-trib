@@ -4,24 +4,25 @@ module FibTrib
   
     def sequence(n, pos = 0)
       base_array = [1,1,2]
+      
       return base_array[pos] if pos < 2 || pos == 2
+      
       iterator = pos - 2
-    
-      iterator.times do
-        base_array << get_current_sum(n, base_array)
-      end    
+      build_sum(iterator, base_array, n)
       return base_array.last
     end
   
     private
+    
+    def build_sum(iterator, base_array, n)
+      iterator.times do
+        base_array << get_current_sum(n, base_array)
+      end
+    end
   
     def get_current_sum(n, base_array)
       adjusted_n = n + 2
-      if needs_sum?(adjusted_n, base_array)
-        get_sum(base_array)
-      else
-        last_sum(adjusted_n, base_array)
-      end
+      needs_sum?(adjusted_n, base_array) ? get_sum(base_array) : last_sum(adjusted_n, base_array)
     end
     
     def last_sum(adjusted_n, base_array)
