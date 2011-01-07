@@ -20,9 +20,13 @@ module FibTrib
       if needs_sum?(adjusted_n, base_array)
         get_sum(base_array)
       else
-        drop_amount = base_array.length - adjusted_n
-        get_sum(base_array.drop(drop_amount))
+        last_sum(adjusted_n, base_array)
       end
+    end
+    
+    def last_sum(adjusted_n, base_array)
+      drop_amount = base_array.length - adjusted_n
+      get_sum(base_array.drop(drop_amount))
     end
     
     def needs_sum?(adjusted_n, base_array)
