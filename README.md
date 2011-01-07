@@ -3,6 +3,10 @@ FibTrib
 A N-Sequence Calculator
 -----------------------
 
+### Installation
+
+`gem install fib-trib`
+
 ### Methods
 
 There can be only one: `sequence`
