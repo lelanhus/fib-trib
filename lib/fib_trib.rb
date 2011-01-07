@@ -2,7 +2,7 @@ module FibTrib
 
   class << self
   
-    def sequence(n, pos = 0, sum = true)
+    def sequence(n, pos = 0)
       base_array = [1,1,2]
       return base_array[pos] if pos < 2 || pos == 2
       iterator = pos - 2
@@ -17,12 +17,20 @@ module FibTrib
   
     def get_current_sum(n, base_array)
       adjusted_n = n + 2
-      if adjusted_n > base_array.length || adjusted_n == base_array.length
-        base_array.inject { |k,v| k + v }
+      if needs_sum?(adjusted_n, base_array)
+        get_sum(base_array)
       else
         drop_amount = base_array.length - adjusted_n
-        base_array.drop(drop_amount).inject { |k,v| k + v }
+        get_sum(base_array.drop(drop_amount))
       end
+    end
+    
+    def needs_sum?(adjusted_n, base_array)
+      adjusted_n > base_array.length || adjusted_n == base_array.length
+    end
+    
+    def get_sum(array)
+      array.inject { |k,v| k + v }
     end
 
   end
