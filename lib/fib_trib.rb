@@ -5,7 +5,7 @@ module FibTrib
     def sequence(n, pos = 0)
       base_array = [1,1,2]
       
-      return base_array[pos] if pos < 2 || pos == 2
+      return base_array[pos] if pos_is_too_close?(pos)
       
       iterator = pos - 2
       build_sum(iterator, base_array, n)
@@ -13,6 +13,10 @@ module FibTrib
     end
   
     private
+    
+    def pos_is_too_close?(pos)
+      pos < 2 || pos == 2
+    end
     
     def build_sum(iterator, base_array, n)
       iterator.times do
